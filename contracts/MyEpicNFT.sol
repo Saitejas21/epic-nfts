@@ -76,12 +76,19 @@ contract MyEpicNFT is ERC721URIStorage {
 
     // Just like before, we prepend data:application/json;base64, to our data.
     string memory finalTokenUri = string(
-        abi.encodePacked("data:application/json;base64,", json)
-    );
+    abi.encodePacked("data:application/json;base64,", json)
+);
 
-    console.log("\n--------------------");
-    console.log(finalTokenUri);
-    console.log("--------------------\n");
+console.log("\n--------------------");
+console.log(
+    string(
+        abi.encodePacked(
+            "https://nftpreview.0xdev.codes/?code=",
+            finalTokenUri
+        )
+    )
+);
+console.log("--------------------\n");
 
     _safeMint(msg.sender, newItemId);
     
